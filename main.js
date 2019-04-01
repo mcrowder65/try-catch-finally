@@ -1,14 +1,22 @@
-const thisThrowsAnError = () => {
-  const object = {
-    hello: 'world'
-  }
-  
-  return object.hello.world.one;
-}
-const main = () => {
+const errorThrower = () => {
+  throw new Error("i am an error");
+};
+
+const errorInvoker = () => {
   try {
-    return thisThrowsAnError()
+    errorThrower();
+    console.log("errorInvoker");
   } finally {
-    console.log('finally!');
+    console.log("finally");
   }
-}
+};
+
+const catcher = () => {
+  try {
+    errorInvoker();
+    console.log("catcher");
+  } catch (error) {
+    console.log("catcher caught the error");
+  }
+};
+catcher();
