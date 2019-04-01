@@ -19,4 +19,5 @@ const catcher = () => {
     console.log("catcher caught the error");
   }
 };
+
 catcher();
